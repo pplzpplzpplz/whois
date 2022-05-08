@@ -10,18 +10,18 @@ let duration = .1;
 
 let turnsCountData = 0;
 let listensCountData = 0;
+let finalScore;
 
 function preload() {
   song = loadSound('asitwas.mp3');
 }
 
 function setup() {
-  createCanvas(300, 600);
+  var calcedHeight = windowWidth * 1.5;
+  var canvas = createCanvas(300, calcedHeight);
+  canvas.parent('playerContainer');
   angleMode(DEGREES); // Change the mode to DEGREES
   colorMode(HSB);
-  // buttton = createButton('Toggle Play');
-  // buttton.mousePressed(toggleSong);
-  // song.play(0, 1, 1, 1, 1);  
   fft = new p5.FFT(0.9, 128);
   space_between_lines = width / 128;
 }
@@ -84,7 +84,7 @@ function draw() {
     fill(i, 255, 255, spectrum[i]);
     let amp = spectrum[i];
     let y = map(amp, 0, 256, height, 0);
-    rect(i * (space_between_lines), y, space_between_lines, height - y - 300, 20);
+    rect(i * (space_between_lines), y, space_between_lines, height - y, 20);
   }
 }
 
@@ -103,7 +103,14 @@ document.addEventListener('keypress', function(e) {
     document.querySelector('.winner').classList.add('show');
     document.querySelector('iframe').classList.add('show');
 
-    document.querySelector('#score').innerHTML = `${turnsCountData * listensCountData}`;
+    if (turnsCountData === 0 || listensCountData === 0) {
+      finalScore = turnsCountData + listensCountData;
+    } else {
+    finalScore = turnsCountData + listensCountData;
+    }
+
+
+    document.querySelector('#score').innerHTML = `${finalScore}`;
     } else {
       document.querySelector('.winner').classList.remove('show');
       document.querySelector('iframe').classList.remove('show');

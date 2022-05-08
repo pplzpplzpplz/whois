@@ -56,6 +56,8 @@ body {
 }
 
 .container {
+  height: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -63,10 +65,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 40px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .container .labelContainer {
+  padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -97,32 +102,39 @@ body {
 }
 
 .container #playerContainer {
-  padding: 20px 0 0 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .container #playerContainer #playButton {
   position: absolute;
-  top: 30vh;
   width: 200px;
   height: auto;
+  z-index: 5;
 }
 
-.container #playerContainer #waveform {
+.container #playerContainer canvas {
   position: relative;
-  left: 30px;
-  height: 320px;
-  width: auto;
+  bottom: 0px;
+  z-index: -1;
 }
 
 .container #formContainer {
-  padding: 54vh 0 0 0;
+  padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -153,21 +165,8 @@ body {
 }
 
 main {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-main canvas {
-  width: 80vw;
-  height: 40vh;
-  position: absolute;
-  top: 0vh;
-  left: 50px;
-  z-index: -1;
+  display: none;
+  visibility: hidden;
+  opacity: 0;
 }
 /*# sourceMappingURL=style.css.map */
