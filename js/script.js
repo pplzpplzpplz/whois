@@ -100,18 +100,25 @@ document.addEventListener('keypress', function(e) {
   if(e.key === 'w') {
     wCount = wCount+1
     if (wCount % 2 === 0) {
-    document.querySelector('.winner').classList.remove('show');
-    document.querySelector('iframe').classList.remove('show');
+      gsap.to(playButton, {duration: .05, opacity: 1});
+      document.querySelector('.winner').classList.remove('show');
+      document.querySelector('iframe').classList.remove('show');
     } else {
+      gsap.to(playButton, {duration: .05, opacity: 0});
       document.querySelector('.winner').classList.add('show');
       document.querySelector('iframe').classList.add('show');
-  
+      
       if (turnsCountData === 0 || listensCountData === 0) {
         finalScore = turnsCountData + listensCountData;
       } else {
       finalScore = turnsCountData + listensCountData;
       }
+      
       document.querySelector('#score').innerHTML = `${finalScore}`;
+      let winnerSongID = '4LRPiXqCikLlN15c3yImP7';
+      let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`;
+      document.querySelector('iframe').src = winnerSongURL;
     }
   }
 });
+
