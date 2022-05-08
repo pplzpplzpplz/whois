@@ -1,0 +1,173 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+* {
+  color: #fff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
+}
+
+.show {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.winner {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  background-color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: .5;
+}
+
+.winner .h2 {
+  font-size: 2rem;
+}
+
+.winner iframe {
+  display: none;
+  opacity: 0;
+  width: 80%;
+  visibility: hidden;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 40px;
+}
+
+.container .labelContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container #turnsContainer, .container #listensContainer {
+  width: 50px;
+  height: auto;
+  text-align: center;
+}
+
+.container #turnsContainer #turnsLabel, .container #turnsContainer #listensLabel, .container #listensContainer #turnsLabel, .container #listensContainer #listensLabel {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.container #turnsContainer #turnsCount, .container #turnsContainer #listensCount, .container #listensContainer #turnsCount, .container #listensContainer #listensCount {
+  font-size: 3rem;
+  line-height: 2.75rem;
+  font-weight: 300;
+}
+
+.container #playerContainer {
+  padding: 20px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+.container #playerContainer #playButton {
+  position: absolute;
+  top: 30vh;
+  width: 200px;
+  height: auto;
+}
+
+.container #playerContainer #waveform {
+  position: relative;
+  left: 30px;
+  height: 320px;
+  width: auto;
+}
+
+.container #formContainer {
+  padding: 54vh 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container #formContainer input {
+  margin: 10px 0 0 0;
+  text-align: center;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 8px;
+}
+
+.container #formContainer button {
+  background-color: #343434;
+  margin: 10px 0 0 0;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 8px;
+}
+
+.container #formContainer #skipButton {
+  background-color: #191919;
+}
+
+main {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main canvas {
+  width: 80vw;
+  height: 40vh;
+  position: absolute;
+  top: 0vh;
+  left: 50px;
+  z-index: -1;
+}
+/*# sourceMappingURL=style.css.map */

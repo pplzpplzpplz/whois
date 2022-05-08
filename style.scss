@@ -1,0 +1,144 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+* {
+  color: #fff;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: bold;
+}
+
+.show {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.winner {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: .5;
+
+  .h2 {
+    font-size: 2rem;
+    // font-weight: 800;
+  }
+
+  iframe {
+    display: none;
+    opacity: 0;
+    width: 80%;
+    visibility: hidden;
+    // display: none;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  // align-items: center; 
+  padding: 40px;
+
+  .labelContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #turnsContainer, #listensContainer {
+    width: 50px;
+    height: auto;
+    text-align: center;
+
+    #turnsLabel, #listensLabel{
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+    
+    #turnsCount, #listensCount{
+      font-size: 3rem;
+      line-height: 2.75rem;
+      font-weight: 300;
+    }
+  }
+
+  #playerContainer{
+    padding: 20px 0 0 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    #playButton {
+      position: absolute;
+      top: 30vh;
+      width: 200px;
+      height: auto;
+    }
+    
+    #waveform {
+      position: relative;
+      left: 30px;
+      height: 320px;
+      width: auto;
+    }
+  }
+
+  #formContainer {
+    padding: 54vh 0 0 0;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin: 10px 0 0 0;
+      text-align: center;
+      padding: 10px 50px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #343434;
+      margin: 10px 0 0 0;
+      padding: 10px 50px;
+      border: none;
+      border-radius: 8px;
+    }
+
+    #skipButton {
+      background-color: #191919;
+    }
+  }
+
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  canvas {
+    width: 80vw;
+    height: 40vh;
+    position: absolute;
+    top: 0vh;
+    left: 50px;
+    z-index: -1;
+    // transform: rotate(90deg);
+  }
+}
