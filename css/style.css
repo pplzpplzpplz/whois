@@ -91,21 +91,26 @@ body {
           justify-content: space-between;
 }
 
-.container #turnsContainer, .container #listensContainer {
+.container #turnsContainer, .container #listensContainer, .container #timeContainer {
   width: 50px;
   height: auto;
   text-align: center;
 }
 
-.container #turnsContainer #turnsLabel, .container #turnsContainer #listensLabel, .container #listensContainer #turnsLabel, .container #listensContainer #listensLabel {
+.container #turnsContainer #turnsLabel, .container #turnsContainer #listensLabel, .container #turnsContainer #timeLabel, .container #listensContainer #turnsLabel, .container #listensContainer #listensLabel, .container #listensContainer #timeLabel, .container #timeContainer #turnsLabel, .container #timeContainer #listensLabel, .container #timeContainer #timeLabel {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
-.container #turnsContainer #turnsCount, .container #turnsContainer #listensCount, .container #listensContainer #turnsCount, .container #listensContainer #listensCount {
+.container #turnsContainer #turnsCount, .container #turnsContainer #listensCount, .container #listensContainer #turnsCount, .container #listensContainer #listensCount, .container #timeContainer #turnsCount, .container #timeContainer #listensCount {
   font-size: 3rem;
   line-height: 2.75rem;
-  font-weight: 300;
+  font-weight: 400;
+}
+
+.container #turnsContainer #timeCount, .container #listensContainer #timeCount, .container #timeContainer #timeCount {
+  line-height: 2.75rem;
+  font-weight: 200;
 }
 
 .container #playerContainer {
@@ -159,16 +164,25 @@ body {
   border-radius: 8px;
 }
 
-.container #formContainer button {
+.container #formContainer button, .container #formContainer input {
+  width: 100%;
   background-color: #343434;
   margin: 10px 0 0 0;
-  padding: 10px 50px;
+  padding: 10px 10px;
   border: none;
   border-radius: 8px;
 }
 
 .container #formContainer #skipButton {
   background-color: #191919;
+}
+
+.container #formContainer #submitButton {
+  width: 100%;
+}
+
+.container #formContainer #userInput {
+  width: calc(100% - 20px);
 }
 
 main {

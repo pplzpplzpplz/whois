@@ -68,20 +68,25 @@ body {
     justify-content: space-between;
   }
 
-  #turnsContainer, #listensContainer {
+  #turnsContainer, #listensContainer, #timeContainer {
     width: 50px;
     height: auto;
     text-align: center;
 
-    #turnsLabel, #listensLabel{
+    #turnsLabel, #listensLabel, #timeLabel {
       font-size: 1.25rem;
-      font-weight: 300;
+      font-weight: 400;
     }
     
     #turnsCount, #listensCount{
       font-size: 3rem;
       line-height: 2.75rem;
-      font-weight: 300;
+      font-weight: 400;
+    }
+
+    #timeCount {
+      line-height: 2.75rem;
+      font-weight: 200;
     }
   }
 
@@ -122,16 +127,26 @@ body {
       border-radius: 8px;
     }
 
-    button {
+    button, input {
+      width: 100%;
       background-color: #343434;
       margin: 10px 0 0 0;
-      padding: 10px 50px;
+      padding: 10px 10px;
       border: none;
       border-radius: 8px;
     }
 
     #skipButton {
       background-color: #191919;
+    }
+
+    #submitButton {
+      width: 100%;
+    }
+
+    #userInput {
+      width:calc(100% - 20px);
+      // overflow: hidden;
     }
   }
 
