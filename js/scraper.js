@@ -4,6 +4,11 @@ const PORT = 8000;
 const axios = require('axios');
 const cheerio = require('cheerio');
 const express = require('express');
+// ///////////////////////
+const fs = require('fs');
+
+const file = fs.createWriteStream('array.txt');
+// ///////////////////////
 
 // top 200 spotify songs in US
 const url = 'https://spotifycharts.com/regional/us/weekly/latest';
@@ -59,8 +64,24 @@ axios(url)
     }
     randomSong();
 
-    console.log('The random song is: \n' + songURLArr[songIndex], trackIDarr[songIndex], artistNameArr[songIndex], songNameArr[songIndex]);
+    // console.log('The random song is: \n' + songURLArr[songIndex], trackIDarr[songIndex], artistNameArr[songIndex], songNameArr[songIndex]);
+    // console.log(artistNameArr)
+    file.on('error', (err) => {
+      /* error handling */
+    });
+    
+    artistNameArr.forEach((e) => {
+      var newE = e + ', ' + '\n';
+      file.write(newE);
+    });
+    
+    console.log('text file generated')
+    
+    file.end();
   }).catch(err => {console.log(err)});
   
 
 app.listen(PORT, () => {console.log(`server running on port ${PORT}`)});
+
+
+
