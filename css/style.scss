@@ -21,6 +21,12 @@ ul {
   display: none;
 }
 
+#progressBar {
+  height:20px; 
+  // width:100px; 
+  background-color: white;
+}
+
 * {
   color: #fff;
   font-family: 'Nunito Sans', sans-serif;
@@ -76,6 +82,20 @@ ul {
   flex-direction: column;
   justify-content: space-between;
   // align-items: center; 
+
+  .outerLabelContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #outerProgressBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
 
   .labelContainer {
     padding: 20px;

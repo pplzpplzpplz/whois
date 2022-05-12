@@ -208,7 +208,15 @@ const top200Songs = [
   "this is what falling in love feels like by JVKE", 
   "Envolver by Anitta",
 ]
+const progressBar = document.querySelector('#progressBar');
+// const input = document.querySelector(".userInput");
+// console.log(input);
 
+let winningSong = "As It Was by Harry Styles";
+// console.log(winningSong);
+
+let input = document.querySelector("form");
+// console.log(input.elements[0].value);
 let song;
 let cueStart = 43.5;
 let duration = .1;
@@ -217,6 +225,9 @@ let turnsCountData = 0;
 let listensCountData = 0;
 let timeCountData = .1;
 let finalScore;
+
+progressBar.style.width = `${timeCountData * 10}%`;
+
 
 function preload() {
   song = loadSound('asitwas.mp3');
@@ -249,6 +260,7 @@ skipButton.addEventListener('click', skipClicked);
 
 function skipClicked() {
   turnsCountData = turnsCountData + 1;
+  progressBar.style.width = `${turnsCountData * 2}%`;
   turnsCount.innerHTML = turnsCountData;
   duration = duration + audioIncrement;
   timeCountData = timeCountData + audioIncrement
@@ -257,6 +269,7 @@ function skipClicked() {
 
 
 
+// debugger;
 // 
 // 
 // 
@@ -302,26 +315,22 @@ function touchStarted() {
 
 let wCount = 0;
 
-document.addEventListener('keypress', function(e) {
-  if(e.key === 'w') {
-    wCount = wCount+1
-    if (wCount % 2 === 0) {
-      gsap.to(playButton, {duration: .05, opacity: 1});
-      document.querySelector('.winner').classList.remove('show');
-      document.querySelector('iframe').classList.remove('show');
-    } else {
-      gsap.to(playButton, {duration: .05, opacity: 0});
-      document.querySelector('.winner').classList.add('show');
-      document.querySelector('iframe').classList.add('show');
-      
 
-      finalScore = turnsCountData + listensCountData + timeCountData;
-      
-      document.querySelector('#score').innerHTML = `${finalScore}`;
-      let winnerSongID = '4LRPiXqCikLlN15c3yImP7';
-      let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`;
-      document.querySelector('iframe').src = winnerSongURL;
-    }
+input.addEventListener('submit', (event) => {
+
+  console.log("you tried");
+  // debugger;
+  if (input.elements[0].value = winningSong) {
+    console.log("you won");
+    gsap.to(playButton, {duration: .05, opacity: 0})
+    document.querySelector('.winner').classList.add('show')
+    document.querySelector('iframe').classList.add('show')
+
+    finalScore = turnsCountData + listensCountData + timeCountData
+    
+    document.querySelector('#score').innerHTML = `${finalScore}`
+    let winnerSongID = '4LRPiXqCikLlN15c3yImP7'
+    let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
+    document.querySelector('iframe').src = winnerSongURL
   }
 });
-
