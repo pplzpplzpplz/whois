@@ -11,6 +11,7 @@ const file = fs.createWriteStream('array.txt');
 // ///////////////////////
 
 // top 200 spotify songs in US
+// ~~~~~~ this site will be deprecated June 3, 2022 !! ~~~~~~~
 const url = 'https://spotifycharts.com/regional/us/weekly/latest';
 
 const app = express();
@@ -19,40 +20,46 @@ axios(url)
   .then(response => {
     const html = response.data
     const $ = cheerio.load(html);
+    let allInfoArr = [];
     const songURLArr = [];
     const trackIDarr = [];
     const artistNameArr = [];
     const songNameArr = [];
+    let songIDArray = [];
     let songURL;
     let songID;
     let artistName;
     let songName;
 
-    // find songID
+    // find songID, songURL
     $('.chart-table-image > a', html).each(function() {
       songURL = $(this).attr('href');
       songID = songURL.substring(31); //remove first part of URL leaving only trackID at end
-      trackIDarr.push(
-        songID
-      )
+      trackIDarr.push(songID)
       songURLArr.push(songURL)
     });
 
+    // trackIDarr.shift();
+    // songURLArr.shift();
+
     // find artist name
-    $('.chart-table-track > span', html).each(function() {
-      artistName = $(this).text().trim().substring(3);
-      artistNameArr.push(
-        artistName
+    // $('.chart-table-track > span', html).each(function() {
+    //   artistName = $(this).text().trim().substring(3);
+    //   artistNameArr.push(
+    //     artistName
+    //   )
+    // });
+
+    // find song name + artist
+    $('.chart-table-track', html).each(function() {
+      songAndArtistName = $(this).text().trim().replace(/\s+/g, " ");
+      // console.log(songAndArtistName)
+      songNameArr.push(
+        songAndArtistName
       )
     });
 
-    // find song name
-    $('.chart-table-track *:first-child', html).each(function() {
-      songName = $(this).text().trim();
-      songNameArr.push(
-        songName
-      )
-    });
+    songNameArr.shift();
 
     let songIndex;
 
@@ -64,15 +71,30 @@ axios(url)
     }
     randomSong();
 
+    songURLArr.forEach((e, index) => {
+      allInfoArr.push({
+        rank: index + 1,
+        Song: songNameArr[index],
+        URL: e,
+        TrackID: trackIDarr[index]
+      })
+    })
+
+      console.log(allInfoArr)
+
+
+
+
     // console.log('The random song is: \n' + songURLArr[songIndex], trackIDarr[songIndex], artistNameArr[songIndex], songNameArr[songIndex]);
     // console.log(artistNameArr)
     file.on('error', (err) => {
       /* error handling */
     });
     
-    artistNameArr.forEach((e) => {
-      var newE = e + ', ' + '\n';
-      file.write(newE);
+    // songNameArr.shift();
+    allInfoArr.forEach((e) => {
+      e = JSON.stringify(e) + ', ' + '\n';
+      file.write(e);
     });
     
     console.log('text file generated')
