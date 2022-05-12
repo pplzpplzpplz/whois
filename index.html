@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WHOSIT??</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
   
   <script src="p5/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.js" integrity="sha512-U2sgwrFhl+Tgx9iGH9h5Ba2WyIjyCes+D0prtIFw3a0V+/fkaeL5Cd/VjyPHno9kUPE1rnNhBGTyvtZsfJp0xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -18,7 +21,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/autocomplete.css"> -->
   
 </head>
 <body>
@@ -64,8 +67,16 @@
 <script src="js/script.js"></script>
 <script src="js/autocomplete.js"></script>
 
-<script>
+<!-- <script>
 autocomplete(document.getElementById("userInput"), top200Songs);
-</script>
+</script> -->
+
+<script>
+  $( function() {
+    $( "#userInput" ).autocomplete({
+      source: top200Songs
+    });
+  } );
+  </script>
 
 </html>

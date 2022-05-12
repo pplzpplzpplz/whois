@@ -5,6 +5,22 @@ body {
   margin:0;
 }
 
+ul {
+  width: 100% !important;
+  position: absolute;
+  left: -40px !important;
+
+  li {
+    padding-top: 20px !important;
+    list-style: none;
+    text-align: center;
+  }
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
 * {
   color: #fff;
   font-family: 'Nunito Sans', sans-serif;

@@ -1,4 +1,4 @@
-console.log('it works');
+console.log('nothing to see here!');
 
 const playButton = document.querySelector('#playButton');
 const skipButton = document.querySelector('#skipButton');
