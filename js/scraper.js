@@ -69,18 +69,22 @@ axios(url)
       songIndex = randomNumber;
       return songIndex;
     }
-    randomSong();
-
-    songURLArr.forEach((e, index) => {
+    
+    
+    songURLArr.forEach((e, i) => {
       allInfoArr.push({
-        rank: index + 1,
-        Song: songNameArr[index],
+        // rank: i + 1,
+        Song: songNameArr[i],
         URL: e,
-        TrackID: trackIDarr[index]
+        TrackID: trackIDarr[i]
       })
     })
-
-      console.log(allInfoArr)
+    
+    console.log(allInfoArr)
+    randomSong();
+    console.log(`
+    ~~~~~the rAnDoM song chosen is ${JSON.stringify(allInfoArr[songIndex])}~~~~~
+    `)
 
 
 
@@ -93,7 +97,7 @@ axios(url)
     
     // songNameArr.shift();
     allInfoArr.forEach((e) => {
-      e = JSON.stringify(e) + ', ' + '\n';
+      e = JSON.stringify(e.Song) + ', ' + '\n';
       file.write(e);
     });
     
