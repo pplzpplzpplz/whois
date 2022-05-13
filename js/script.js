@@ -317,11 +317,16 @@ let wCount = 0;
 
 
 input.addEventListener('submit', (event) => {
-
+  event.preventDefault();
   console.log("you tried");
   // debugger;
-  if (input.elements[0].value = winningSong) {
+  if (input.elements[0].value == winningSong) {
+
     console.log("you won");
+    console.log(input.elements[0].value);
+    console.log(winningSong);
+
+    // debugger;
     gsap.to(playButton, {duration: .05, opacity: 0})
     document.querySelector('.winner').classList.add('show')
     document.querySelector('iframe').classList.add('show')
