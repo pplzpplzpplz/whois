@@ -1,6 +1,7 @@
-console.log('nothing to see here!');
+console.log('~~~~~ W H O I S ? ~~~~~');
 
 const playButton = document.querySelector('#playButton');
+const sorryScreen = document.querySelector('.sorry');
 const skipButton = document.querySelector('#skipButton');
 const turnsCount = document.querySelector('#turnsCount');
 const listensCount = document.querySelector('#listensCount');
@@ -231,6 +232,8 @@ progressBar.style.width = `${timeCountData * 10}%`;
 
 function preload() {
   song = loadSound('asitwas.mp3');
+  song2 = loadSound('wrong.mp3');
+  song3 = loadSound('right.wav');
 }
 
 function setup() {
@@ -322,6 +325,7 @@ input.addEventListener('submit', (event) => {
   // debugger;
   if (input.elements[0].value == winningSong) {
 
+    song3.play();
     console.log("you won");
     console.log(input.elements[0].value);
     console.log(winningSong);
@@ -337,5 +341,14 @@ input.addEventListener('submit', (event) => {
     let winnerSongID = '4LRPiXqCikLlN15c3yImP7'
     let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
     document.querySelector('iframe').src = winnerSongURL
+  } else {
+    song2.play();
+    sorryScreen.classList.remove('hide');
+    sorryScreen.classList.add('show');
+    setTimeout(() => {
+      input.elements[0].value = "";
+      sorryScreen.classList.remove('show');
+      sorryScreen.classList.add('hide');
+    } , 600)
   }
 });
