@@ -219,7 +219,7 @@ let winningSong = "As It Was by Harry Styles";
 let input = document.querySelector("form");
 // console.log(input.elements[0].value);
 let song;
-let cueStart = 43.5;
+let cueStart = 0;
 let duration = .1;
 
 let turnsCountData = 0;
