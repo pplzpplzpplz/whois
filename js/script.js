@@ -210,14 +210,11 @@ const top200Songs = [
   "Envolver by Anitta",
 ]
 const progressBar = document.querySelector('#progressBar');
-// const input = document.querySelector(".userInput");
-// console.log(input);
 
 let winningSong = "As It Was by Harry Styles";
-// console.log(winningSong);
 
-let input = document.querySelector("form");
-// console.log(input.elements[0].value);
+let form = document.querySelector("form");
+let userInput = document.querySelector('#userInput');
 let song;
 let cueStart = 43.5;
 let duration = .1;
@@ -249,49 +246,67 @@ function setup() {
 playButton.addEventListener('click', playSound);
 
 function playSound() {
-  gsap.to(playButton, {duration: .05, opacity: 0});
-  listensCountData = listensCountData + 1;
+  // refactor gsap animations -- playButton.classList.add('playing'); and then transition in .scss isntead of duration/gsap
+  // make a method to do playButton.classList.add('playing')
+  gsap.to(playButton, {duration: .05, opacity: 0}); 
+  listensCountData += 1;
   listensCount.innerHTML = listensCountData;
-  // play([startTime], [rate], [amp], [cueStart], [duration])
-  song.play(0, 1, 1, cueStart, duration);
+  song.play(0, 1, 1, cueStart, duration);     // play([startTime], [rate], [amp], [cueStart], [duration])
   song.onended(function() {
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
 }
 
 skipButton.addEventListener('click', skipClicked);
+// throw the function in here^^^
 
 function skipClicked() {
-  turnsCountData = turnsCountData + 1;
-  progressBar.style.width = `${turnsCountData * 2}%`;
-  turnsCount.innerHTML = turnsCountData;
-  duration = duration + audioIncrement;
-  timeCountData = timeCountData + audioIncrement
-  timeCount.innerHTML = `${timeCountData.toFixed(1)} s`;
+  // google 'javascript CLASSES' -- 
+  // more explicit - for the future .. 
+  // class Player {
+  //   turnsCountData;
+  //   constructor() {
+  //       this.turnsCountData = 0;
+  //   }
+  //   skipClicked() {
+  //     this.turnsCountData += 1
+  //   }
+  // }
+  // const p = new Player();
+  // button.addEventListener('click', ()=>{
+  //   p.skipClicked();
+  // })
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // keeping state logic in one area
+  // or object with methods/funcs inside it
+  // const player = {
+  //   turnsCountData:0,
+  //   skipClicked:()=>{
+  //     this.turnsCountData += 1
+  //   }
+  // }
+
+
+
+  turnsCountData += 1
+  progressBar.style.width = `${turnsCountData * 2}%`
+  // this can currently go past 100% so do math better here / locked in to 100% with maxing out with the duration 
+  // greyed out waveform that fills in with color?
+  turnsCount.innerHTML = turnsCountData
+  duration += audioIncrement
+  timeCountData += audioIncrement
+  timeCount.innerHTML = `${timeCountData.toFixed(1)} s`
 }
 
+let fft, space_between_lines;
 
-
-// debugger;
-// 
-// 
-// 
-// 
-// 
-// 
-// 
-
-
-
-let buttton, fft, space_between_lines;
-
-function toggleSong() {
-  if(song.isPlaying()) {
-    song.pause();
-  } else {
-    song.play();
-  }
-}
+// function toggleSong() {
+//   if(song.isPlaying()) {
+//     song.pause();
+//   } else {
+//     song.play();
+//   }
+// }
 
 
 
@@ -312,23 +327,20 @@ function draw() {
 
 // Chrome 70 will require user gestures to enable web audio api
 // Click on the web page to start audio
-function touchStarted() {
-  getAudioContext().resume();
-}
+// function touchStarted() {
+//   getAudioContext().resume();
+// }
 
-let wCount = 0;
+// let wCount = 0;
 
 
-input.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
-  console.log("you tried");
+  console.log("you submitted an answer");
   // debugger;
-  if (input.elements[0].value == winningSong) {
+  if (userInput.value == winningSong) {
 
     song3.play();
-    console.log("you won");
-    console.log(input.elements[0].value);
-    console.log(winningSong);
 
     // debugger;
     gsap.to(playButton, {duration: .05, opacity: 0})
@@ -336,17 +348,18 @@ input.addEventListener('submit', (event) => {
     document.querySelector('iframe').classList.add('show')
 
     finalScore = turnsCountData + listensCountData + timeCountData
+    // weight turns higher?
     
-    document.querySelector('#score').innerHTML = `${finalScore}`
+    document.querySelector('#score').innerHTML = finalScore
     let winnerSongID = '4LRPiXqCikLlN15c3yImP7'
     let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
     document.querySelector('iframe').src = winnerSongURL
   } else {
     song2.play();
-    sorryScreen.classList.remove('hide');
-    sorryScreen.classList.add('show');
+    sorryScreen.classList.remove('hide');  // put hide values into the scss for sorryScreen default scss
+    sorryScreen.classList.add('show'); 
     setTimeout(() => {
-      input.elements[0].value = "";
+      form.elements[0].value = "";
       sorryScreen.classList.remove('show');
       sorryScreen.classList.add('hide');
     } , 600)

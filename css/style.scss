@@ -6,7 +6,7 @@ body {
 }
 
 .sorry {
-  // visibility: hidden;
+  // refactor so that both feedback_panel have all of the same main properties, then just add css as needed
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +21,18 @@ body {
     font-size: 2rem;
     line-height: 1;
   }
+}
+
+.show {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.hide {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 ul {
@@ -49,18 +61,6 @@ ul {
   color: #fff;
   font-family: 'Nunito Sans', sans-serif;
   font-weight: bold;
-}
-
-.show {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.hide {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
 }
 
 .winner {

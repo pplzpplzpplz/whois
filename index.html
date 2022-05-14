@@ -21,7 +21,6 @@
 
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <!-- <link rel="stylesheet" type="text/css" href="css/autocomplete.css"> -->
   
 </head>
 <body>
@@ -62,8 +61,11 @@
       <img id="playButton" src="images/play.png" alt="play button">
     </div>
     <div id="formContainer">
-      <form autocomplete="off">
-        <div class="autocomplete">
+      <form autocomplete="off" method="GET" action=""> 
+        <!-- when you submit, it will make a GET request to the page its on..  -->
+        <!-- calebm.com?first_name=chris&last_name=lefevre < if there are form fields -->
+        <!-- could use php to read data -->
+      <div class="autocomplete">
           <input type="text" name="userInput" id="userInput" placeholder="your entry">
         </div>
         <input type="submit" id="submitButton" value="submit">
@@ -74,18 +76,18 @@
 </body>
 
 <script src="js/script.js"></script>
-<script src="js/autocomplete.js"></script>
+<!-- <script src="js/autocomplete.js"></script> -->
 
 <!-- <script>
 autocomplete(document.getElementById("userInput"), top200Songs);
 </script> -->
 
 <script>
-  $( function() {
-    $( "#userInput" ).autocomplete({
+  $(function() {
+    $("#userInput").autocomplete({
       source: top200Songs
     });
   } );
-  </script>
+</script>
 
 </html>
