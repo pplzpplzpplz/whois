@@ -13,22 +13,64 @@ li {
   border-top: #fff 1px solid;
 }
 
-.sorry {
-  // refactor so that both feedback_panel have all of the same main properties, then just add css as needed
+.feedbackPanel {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
   width: 100vw;
-  font-size: 3rem;
-  background-color: rgb(6, 15, 146);
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  text-align: center;
+
+  .feedbackWrap {
+    width: 60%;
+  }
 
   span {
-    padding-top: 10px;
-    font-size: 2rem;
+    // padding-top: 10px;
+    font-size: .75rem;
     line-height: 1;
   }
+
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    padding: 50px 0;
+    font-size: 1rem;
+    margin: 0;
+  }
+}
+
+.intro { 
+  // margin: 0 5vw;
+  background-color: #333333;
+  // opacity: .95;
+
+  strong {font-weight: 700 !important;}
+
+  button {
+    width: 50%;
+    background-color: #37c400;
+    margin: 10px 10px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  p {
+    text-align: left;
+  }
+}
+
+.sorry {
+  // refactor so that both feedback_panel have all of the same main properties, then just add css as needed
+  background-color: rgb(6, 15, 146);
+
 }
 
 .show {
@@ -68,23 +110,14 @@ ul {
 * {
   color: #fff;
   font-family: 'Nunito Sans', sans-serif;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .winner {
   display: none;
   opacity: 0;
   visibility: hidden;
-  width: 100vw;
-  height: 100vh;
-  z-index: 4;
-  position: absolute;
-  top: 0;
   background-color: green;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   line-height: .5;
 
   text-align: center;
@@ -112,14 +145,8 @@ ul {
   }
 
   iframe {
-    display: none;
-    opacity: 0;
     width: 60vw;
     height: 18vw;
-    // padding: 0 20vw !important;
-    // height: auto;
-    visibility: hidden;
-    // display: none;
   }
 }
 

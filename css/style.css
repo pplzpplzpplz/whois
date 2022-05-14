@@ -13,7 +13,7 @@ li {
   border-top: #fff 1px solid;
 }
 
-.sorry {
+.feedbackPanel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,14 +29,54 @@ li {
           align-items: center;
   height: 100vh;
   width: 100vw;
-  font-size: 3rem;
-  background-color: #060f92;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  text-align: center;
 }
 
-.sorry span {
-  padding-top: 10px;
-  font-size: 2rem;
+.feedbackPanel .feedbackWrap {
+  width: 60%;
+}
+
+.feedbackPanel span {
+  font-size: .75rem;
   line-height: 1;
+}
+
+.feedbackPanel h2 {
+  margin: 0;
+}
+
+.feedbackPanel p {
+  padding: 50px 0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.intro {
+  background-color: #333333;
+}
+
+.intro strong {
+  font-weight: 700 !important;
+}
+
+.intro button {
+  width: 50%;
+  background-color: #37c400;
+  margin: 10px 10px;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+.intro p {
+  text-align: left;
+}
+
+.sorry {
+  background-color: #060f92;
 }
 
 .show {
@@ -77,32 +117,13 @@ ul li {
 * {
   color: #fff;
   font-family: 'Nunito Sans', sans-serif;
-  font-weight: bold;
 }
 
 .winner {
   display: none;
   opacity: 0;
   visibility: hidden;
-  width: 100vw;
-  height: 100vh;
-  z-index: 4;
-  position: absolute;
-  top: 0;
   background-color: green;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   line-height: .5;
   text-align: center;
 }
@@ -127,11 +148,8 @@ ul li {
 }
 
 .winner iframe {
-  display: none;
-  opacity: 0;
   width: 60vw;
   height: 18vw;
-  visibility: hidden;
 }
 
 .container {

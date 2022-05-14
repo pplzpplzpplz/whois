@@ -1,29 +1,35 @@
-
-
-
-
 // 
 // 
 // http://wavesurfer-js.org/example/bars/index.html
 // https://css-tricks.com/making-an-audio-waveform-visualizer-with-vanilla-javascript/
 //
 // 
-// 
-// 
-
-
-
 
 console.log('~~~~~ W H O I S ? ~~~~~');
 
+function preload() {
+  song = loadSound('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+  wrongAnswerSound = loadSound('wrong.mp3');
+  winnerSound = loadSound('right.wav');
+}
+
+
+
 const playButton = document.querySelector('#playButton');
-const sorryScreen = document.querySelector('.sorry');
 const skipButton = document.querySelector('#skipButton');
+const letsGoButton = document.querySelector('#letsGo');
+
+const introScreen = document.querySelector('.intro');
+const sorryScreen = document.querySelector('.sorry');
+const winnerScreen = document.querySelector('.winner');
+
 const turnsCount = document.querySelector('#turnsCount');
 const listensCount = document.querySelector('#listensCount');
 const timeCount = document.querySelector('#timeCount');
+
 const audioIncrement = .1;
 const top200Songs = [
+  "Dreams by Fleetwood Mac",
   "As It Was by Harry Styles", 
   "First Class by Jack Harlow", 
   "WAIT FOR U (feat. Drake & Tems) by Future", 
@@ -227,15 +233,15 @@ const top200Songs = [
 ]
 const progressBar = document.querySelector('#progressBar');
 
-let winningSong = "As It Was by Harry Styles";
-let winnerSongID = '4LRPiXqCikLlN15c3yImP7'
+let winningSong = "Dreams by Fleetwood Mac";
+let winnerSongID = '0ofHAoxe9vBkTCp2UQIavz'
 let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
 document.querySelector('iframe').src = winnerSongURL
 
 let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
-let song;
-let cueStart = 0;
+// let song;
+let cueStart = 2;
 let duration = .1;
 
 let turnsCountData = 0;
@@ -244,13 +250,6 @@ let timeCountData = .1;
 let finalScore;
 
 progressBar.style.width = `${timeCountData * 10}%`;
-
-
-function preload() {
-  song = loadSound('https://p.scdn.co/mp3-preview/e9216304e6456a9015ac2054692fd4f0135d8aa9?cid=a46f5c5745a14fbf826186da8da5ecc3');
-  song2 = loadSound('wrong.mp3');
-  song3 = loadSound('right.wav');
-}
 
 function setup() {
   var calcedHeight = windowWidth;
@@ -261,6 +260,12 @@ function setup() {
   fft = new p5.FFT(0.9, 128);
   space_between_lines = width / 128;
 }
+
+letsGoButton.addEventListener('click', function () {
+  introScreen.classList.add('hide')
+  // introScreen.classList.remove('show')
+})
+
 
 playButton.addEventListener('click', playSound);
 
@@ -362,16 +367,12 @@ form.addEventListener('submit', (event) => {
   if (userInput.value == winningSong) {
 
     document.querySelector('#x').addEventListener('click', ()=>{
-      document.querySelector('.winner').classList.remove('show')
-      document.querySelector('iframe').classList.remove('show')
+      winnerScreen.classList.remove('show')
     })
 
-    song3.play();
-
-    // debugger;
+    winnerSound.play();
     gsap.to(playButton, {duration: .05, opacity: 0})
-    document.querySelector('.winner').classList.add('show')
-    document.querySelector('iframe').classList.add('show')
+    winnerScreen.classList.add('show')
 
     finalScore = turnsCountData + listensCountData + timeCountData
     // weight turns higher?
@@ -380,8 +381,8 @@ form.addEventListener('submit', (event) => {
   } else 
   // IF THEY ARE WRONG:::
   {
-    song2.play();
-    sorryScreen.classList.remove('hide');  // put hide values into the scss for sorryScreen default scss
+    wrongAnswerSound.play();
+    sorryScreen.classList.remove('hide');
     sorryScreen.classList.add('show'); 
     setTimeout(() => {
       form.elements[0].value = "";
