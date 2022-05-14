@@ -1,3 +1,19 @@
+
+
+
+
+// 
+// 
+// http://wavesurfer-js.org/example/bars/index.html
+// https://css-tricks.com/making-an-audio-waveform-visualizer-with-vanilla-javascript/
+//
+// 
+// 
+// 
+
+
+
+
 console.log('~~~~~ W H O I S ? ~~~~~');
 
 const playButton = document.querySelector('#playButton');
@@ -212,6 +228,9 @@ const top200Songs = [
 const progressBar = document.querySelector('#progressBar');
 
 let winningSong = "As It Was by Harry Styles";
+let winnerSongID = '4LRPiXqCikLlN15c3yImP7'
+let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
+document.querySelector('iframe').src = winnerSongURL
 
 let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
@@ -338,7 +357,14 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   console.log("you submitted an answer");
   // debugger;
+
+  // IF THEY WON:::
   if (userInput.value == winningSong) {
+
+    document.querySelector('#x').addEventListener('click', ()=>{
+      document.querySelector('.winner').classList.remove('show')
+      document.querySelector('iframe').classList.remove('show')
+    })
 
     song3.play();
 
@@ -351,10 +377,9 @@ form.addEventListener('submit', (event) => {
     // weight turns higher?
     
     document.querySelector('#score').innerHTML = finalScore
-    let winnerSongID = '4LRPiXqCikLlN15c3yImP7'
-    let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
-    document.querySelector('iframe').src = winnerSongURL
-  } else {
+  } else 
+  // IF THEY ARE WRONG:::
+  {
     song2.play();
     sorryScreen.classList.remove('hide');  // put hide values into the scss for sorryScreen default scss
     sorryScreen.classList.add('show'); 

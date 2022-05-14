@@ -5,6 +5,14 @@ body {
   margin: 0;
 }
 
+li {
+  margin: 0 auto;
+  background-color: #343434;
+  width: calc(100% - 20px);
+  padding: 5% 0;
+  border-top: #fff 1px solid;
+}
+
 .sorry {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -89,23 +97,40 @@ ul li {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   line-height: .5;
+  text-align: center;
 }
 
-.winner .h2 {
+.winner div {
+  padding: 0 10%;
+}
+
+.winner div p {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.winner div .h2 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 500;
   font-size: 2rem;
+}
+
+.winner #x {
+  padding-top: 5%;
 }
 
 .winner iframe {
   display: none;
   opacity: 0;
-  width: 80%;
+  width: 60vw;
+  height: 18vw;
   visibility: hidden;
 }
 
