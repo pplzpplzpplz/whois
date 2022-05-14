@@ -216,7 +216,7 @@ let winningSong = "As It Was by Harry Styles";
 let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
 let song;
-let cueStart = 43.5;
+let cueStart = 0;
 let duration = .1;
 
 let turnsCountData = 0;
@@ -228,7 +228,7 @@ progressBar.style.width = `${timeCountData * 10}%`;
 
 
 function preload() {
-  song = loadSound('asitwas.mp3');
+  song = loadSound('https://p.scdn.co/mp3-preview/e9216304e6456a9015ac2054692fd4f0135d8aa9?cid=a46f5c5745a14fbf826186da8da5ecc3');
   song2 = loadSound('wrong.mp3');
   song3 = loadSound('right.wav');
 }
