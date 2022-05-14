@@ -111,6 +111,8 @@ ul li {
 
 #progressBar {
   height: 20px;
+  -webkit-transition: width 1s ease;
+  transition: width 1s ease;
   background-color: white;
 }
 

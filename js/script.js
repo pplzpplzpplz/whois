@@ -275,7 +275,9 @@ function playSound() {
   gsap.to(playButton, {duration: .05, opacity: 0}); 
   listensCountData += 1;
   listensCount.innerHTML = listensCountData;
-  song.play(0, 1, 1, cueStart, duration);     // play([startTime], [rate], [amp], [cueStart], [duration])
+  song.play(0, 1, 1, cueStart, duration);  
+  song.setVolume( 0.2, 0, 0 );  
+  // console.log(song.) // play([startTime], [rate], [amp], [cueStart], [duration])
   song.onended(function() {
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
@@ -371,6 +373,7 @@ form.addEventListener('submit', (event) => {
     })
 
     winnerSound.play();
+    winnerSound.setVolume( 0.2, 0, 0 ); 
     gsap.to(playButton, {duration: .05, opacity: 0})
     winnerScreen.classList.add('show')
 
@@ -382,6 +385,7 @@ form.addEventListener('submit', (event) => {
   // IF THEY ARE WRONG:::
   {
     wrongAnswerSound.play();
+    wrongAnswerSound.setVolume( 0.4, 0, 0 );
     sorryScreen.classList.remove('hide');
     sorryScreen.classList.add('show'); 
     setTimeout(() => {
