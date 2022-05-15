@@ -47,6 +47,7 @@ li {
 }
 
 .intro { 
+  z-index: 11;
   // margin: 0 5vw;
   background-color: #333333;
   // opacity: .95;
@@ -106,6 +107,26 @@ ul {
   // width:100px; 
   transition: width 1s ease;
   background-color: white;
+}
+
+#block {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  top: 25%;
+  z-index: 10;
+  background-color: #000;
+}
+
+#waveform {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  width: 20px;
+  overflow: hidden;
+  height: auto;
+  z-index: 5;
 }
 
 * {

@@ -18,6 +18,7 @@ function preload() {
 const playButton = document.querySelector('#playButton');
 const skipButton = document.querySelector('#skipButton');
 const letsGoButton = document.querySelector('#letsGo');
+const waveformId = document.querySelector('#waveform');
 
 const introScreen = document.querySelector('.intro');
 const sorryScreen = document.querySelector('.sorry');
@@ -272,12 +273,14 @@ playButton.addEventListener('click', playSound);
 function playSound() {
   // refactor gsap animations -- playButton.classList.add('playing'); and then transition in .scss isntead of duration/gsap
   // make a method to do playButton.classList.add('playing')
+  gsap.to(waveformId, { duration: duration, x: -20 })
   gsap.to(playButton, {duration: .05, opacity: 0}); 
   listensCountData += 1;
   listensCount.innerHTML = listensCountData;
   song.play(0, 1, 1, cueStart, duration);  
   song.setVolume( 0.2, 0, 0 );  
   // console.log(song.) // play([startTime], [rate], [amp], [cueStart], [duration])
+  gsap.to(waveformId, { duration: 0, x: 0 })
   song.onended(function() {
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
@@ -339,17 +342,28 @@ let fft, space_between_lines;
 
 //Switch to branch symmetric-spectrum using "git checkout symmetric-spectrum" if you want symmetric spectrum.
 
-function draw() {
-  background(0);
+// function draw() {
+//   background(0);
   
-  let spectrum = fft.analyze();
-  for (let i = 0; i < spectrum.length; i++) {
-    fill(i, 255, 255, spectrum[i]);
-    let amp = spectrum[i];
-    let y = map(amp, 0, 256, height, 0);
-    rect(i * (space_between_lines), y, space_between_lines, height - y, 20);
-  }
-}
+//   let spectrum = fft.analyze();
+//   for (let i = 0; i < spectrum.length; i++) {
+//     fill(i, 255, 255, spectrum[i]);
+//     let amp = spectrum[i];
+//     let y = map(amp, 0, 256, height, 0);
+//     rect(i * (space_between_lines), y, space_between_lines, height - y, 20);
+//   }
+// }
+
+var wavesurfer = WaveSurfer.create({
+  container: '#waveform',
+  waveColor: 'violet',
+  progressColor: 'purple',
+  barWidth: 2,
+  barHeight: 1, // the height of the wave
+  barGap: null
+});
+
+wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
 
 // Chrome 70 will require user gestures to enable web audio api
 // Click on the web page to start audio
