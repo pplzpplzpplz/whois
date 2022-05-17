@@ -280,8 +280,8 @@ function playSound() {
   song.play(0, 1, 1, cueStart, duration);  
   song.setVolume( 0.2, 0, 0 );  
   // console.log(song.) // play([startTime], [rate], [amp], [cueStart], [duration])
-  gsap.to(waveformId, { duration: 0, x: 0 })
   song.onended(function() {
+    gsap.to(waveformId, { duration: 0, x: 0 })
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
 }
@@ -409,3 +409,25 @@ form.addEventListener('submit', (event) => {
     } , 600)
   }
 });
+
+// change text inside skipButton every 1 second:
+
+setInterval(function(){
+  skipButton.innerHTML = `skip turn <span style="color:#37c400;">⇉</span>`;
+} , 1000);
+
+setInterval(function(){
+  skipButton.innerHTML = `skip turn <span style="color:#ffffff;">⇉</span>`;
+} , 2000);
+
+// if the autocomplete window is open, do this:
+// userInput.addEventListener('keypress', ()=>{
+//   const allLis = document.querySelectorAll('li');
+//   console.log('autocomplete window is open')
+//   allLis.forEach(li => {
+//     li.addEventListener('pointerdown', ()=>{
+//     li.style.backgroundColor = `#ffffff`;
+//       console.log('touch started')
+//     })
+//   })
+// })
