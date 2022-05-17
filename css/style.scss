@@ -5,6 +5,7 @@ body {
   margin:0;
 
   ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(209, 209, 209, 0.3);
     -webkit-box-shadow: inset 0 0 6px rgba(209, 209, 209, 0.3);
   }
   
@@ -36,7 +37,7 @@ li {
   text-align: center;
 
   .feedbackWrap {
-    width: 60%;
+    width: 65%;
   }
 
   span {
@@ -51,7 +52,7 @@ li {
 
   p {
     padding: 50px 0;
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin: 0;
   }
 }
@@ -63,7 +64,7 @@ li {
   // opacity: .95;
 
   strong {
-    color: #37c400;
+    // color: #37c400;
     font-weight: 700 !important;}
 
   button {
@@ -76,11 +77,13 @@ li {
   }
 
   #tinysnippet {
-    color: #37c400;
-    font-size: 1.25rem;
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 0;
+    vertical-align: middle;
     font-style: italic;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: bold;
     letter-spacing: .1rem;
   }
   
@@ -174,7 +177,7 @@ ul {
 }
 
 * {
-  color: #fff;
+  color: white;
   font-family: 'Nunito Sans', sans-serif;
 }
 
@@ -261,6 +264,21 @@ ul {
       line-height: 2.75rem;
       font-weight: 200;
     }
+  }
+
+  #dottedline {
+    // background-color: #37c400;
+    
+    // width: 100%;
+    // height: 100%;
+    position: absolute;
+    top: 24%;
+    z-index: 4;
+    img {
+      width: auto;
+    height: 150px;
+      // or 
+    } 
   }
 
   #playerContainer{

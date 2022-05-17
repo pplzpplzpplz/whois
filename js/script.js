@@ -243,7 +243,7 @@ let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
 // let song;
 let cueStart = 2;
-let duration = .1;
+let duration = .45;
 
 let turnsCountData = 0;
 let listensCountData = 0;
@@ -279,9 +279,10 @@ function playSound() {
   listensCount.innerHTML = listensCountData;
   song.play(0, 1, 1, cueStart, duration);  
   song.setVolume( 0.2, 0, 0 );  
+
+  gsap.to(waveformId, { duration: 0, x: 0, delay: duration })
   // console.log(song.) // play([startTime], [rate], [amp], [cueStart], [duration])
   song.onended(function() {
-    gsap.to(waveformId, { duration: 0, x: 0 })
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
 }
@@ -324,7 +325,7 @@ function skipClicked() {
   turnsCount.innerHTML = turnsCountData
   duration += audioIncrement
   timeCountData += audioIncrement
-  timeCount.innerHTML = `${timeCountData.toFixed(1)} s`
+  timeCount.innerHTML = `${duration.toFixed(1)} s`
 }
 
 let fft, space_between_lines;
