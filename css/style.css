@@ -166,24 +166,16 @@ ul li :hover {
   background-color: white;
 }
 
-#block {
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  left: 0;
-  top: 25%;
-  z-index: 10;
-  background-color: #000;
-}
-
 #waveform {
   position: fixed;
   top: 25%;
   left: 50%;
-  width: 20px;
-  overflow: hidden;
-  height: auto;
+  width: 10%;
   z-index: 5;
+}
+
+#waveform wave {
+  border-right: none !important;
 }
 
 * {

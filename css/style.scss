@@ -156,24 +156,19 @@ ul {
   background-color: white;
 }
 
-#block {
-  width: 50%;
-  height: 50%;
-  position: absolute;
-  left: 0;
-  top: 25%;
-  z-index: 10;
-  background-color: #000;
-}
-
 #waveform {
   position: fixed;
   top: 25%;
   left: 50%;
-  width: 20px;
-  overflow: hidden;
-  height: auto;
+  width: 10%;
+  // overflow: hidden;
+  // height: auto;
   z-index: 5;
+
+  wave {
+    // padding: 0 20%;
+    border-right: none !important;
+  }
 }
 
 * {
