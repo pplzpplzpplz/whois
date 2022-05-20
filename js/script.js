@@ -241,7 +241,6 @@ document.querySelector('iframe').src = winnerSongURL
 
 let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
-// let song;
 let cueStart = 2;
 let duration = .45;
 
@@ -254,8 +253,11 @@ let finalScore;
 progressBar.style.width = `${timeCountData * 10}%`;
 
 function setup() {
+  // empty, just so p5.js runs / can play song
 }
 
+
+// IF USER CLICKS LETS GO ~~~~~~~~~~~~~~~~~~~~~~~
 letsGoButton.addEventListener('click', function () {
   introScreen.classList.add('hide')
 })
@@ -263,13 +265,12 @@ letsGoButton.addEventListener('click', function () {
 
 
 
+// IF USER CLICKS PLAY ~~~~~~~~~~~~~~~~~~~~~~~
 playButton.addEventListener('click', playSound);
 
 function playSound() {
   // refactor gsap animations -- playButton.classList.add('playing'); and then transition in .scss isntead of duration/gsap
   // make a method to do playButton.classList.add('playing')
-
-  // console.log();
 
   gsap.to(waveformId, { duration: duration, x: -waveformId.offsetWidth })
   gsap.to(playButton, {duration: .05, opacity: 0}); 
@@ -279,43 +280,15 @@ function playSound() {
   song.setVolume( 0.2, 0, 0 );  
 
   gsap.to(waveformId, { duration: 0, x: 0, delay: duration })
-  // console.log(song.) // play([startTime], [rate], [amp], [cueStart], [duration])
   song.onended(function() {
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
 }
 
+// IF USER CLICKS SKIP ~~~~~~~~~~~~~~~~~~~~~~~
 skipButton.addEventListener('click', skipClicked);
-// throw the function in here^^^
 
 function skipClicked() {
-  // google 'javascript CLASSES' -- 
-  // more explicit - for the future .. 
-  // class Player {
-  //   turnsCountData;
-  //   constructor() {
-  //       this.turnsCountData = 0;
-  //   }
-  //   skipClicked() {
-  //     this.turnsCountData += 1
-  //   }
-  // }
-  // const p = new Player();
-  // button.addEventListener('click', ()=>{
-  //   p.skipClicked();
-  // })
-  // ~~~~~~~~~~~~~~~~~~~~~~~~~~
-  // keeping state logic in one area
-  // or object with methods/funcs inside it
-  // const player = {
-  //   turnsCountData:0,
-  //   skipClicked:()=>{
-  //     this.turnsCountData += 1
-  //   }
-  // }
-
-
-
   turnsCountData += 1
   progressBar.style.width = `${turnsCountData * 2}%`
   // this can currently go past 100% so do math better here / locked in to 100% with maxing out with the duration 
@@ -332,7 +305,7 @@ var wavesurfer = WaveSurfer.create({
   waveColor: 'violet',
   progressColor: 'violet',
   barWidth: 2,
-  barHeight: 1, // the height of the wave
+  barHeight: 1,
   barGap: null,
   hideScrollbar: true
 });
@@ -378,7 +351,6 @@ form.addEventListener('submit', (event) => {
 });
 
 // change text inside skipButton every 1 second:
-
 setInterval(function(){
   skipButton.innerHTML = `skip turn <span style="color:#37c400;">⇉</span>`;
 } , 1000);
