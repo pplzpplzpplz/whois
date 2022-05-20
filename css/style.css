@@ -169,7 +169,7 @@ ul li :hover {
 .waveformWrapper {
   position: fixed;
   left: 50%;
-  width: 100px;
+  width: 1000px;
   height: 100px;
   overflow: hidden;
   z-index: 5;
@@ -178,12 +178,16 @@ ul li :hover {
 .waveformWrapper #waveform {
   position: fixed;
   top: 25%;
-  left: 50%;
-  width: 100%;
+  left: 0%;
+  width: 1000px;
 }
 
-.waveformWrapper #waveform wave {
+.waveformWrapper #waveform wave wave {
   border-right: none !important;
+}
+
+.waveformWrapper #waveform timeline {
+  z-index: 5;
 }
 
 * {

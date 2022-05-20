@@ -160,7 +160,7 @@ ul {
 
 position: fixed;
 left: 50%;
-width: 100px;
+width: 1000px;
 height: 100px;
 overflow: hidden;
 z-index: 5;
@@ -168,11 +168,21 @@ z-index: 5;
   #waveform {
     position: fixed;
     top: 25%;
-    left: 50%;
-    width: 100%;
-  
+    left: 0%;
+    width: 1000px;
+
     wave {
-      border-right: none !important;
+
+      
+
+      wave {
+        border-right: none !important;
+      }
+    }
+  
+    timeline {
+      z-index: 5;
+      // border-right: none !important;
     }
   }
 }

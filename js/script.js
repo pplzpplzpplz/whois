@@ -239,6 +239,7 @@ let winnerSongID = '0ofHAoxe9vBkTCp2UQIavz'
 let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
 document.querySelector('iframe').src = winnerSongURL
 
+
 let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
 // let song;
@@ -249,7 +250,7 @@ let turnsCountData = 0;
 let listensCountData = 0;
 let timeCountData = .1;
 let finalScore;
-
+let end;
 
 progressBar.style.width = `${timeCountData * 10}%`;
 
@@ -271,14 +272,16 @@ function playSound() {
 
   // console.log();
 
-  gsap.to(waveformId, { duration: duration, x: -waveformId.offsetWidth })
+  // gsap.to(waveformId, { duration: duration, x: -waveformId.offsetWidth })
   gsap.to(playButton, {duration: .05, opacity: 0}); 
   listensCountData += 1;
   listensCount.innerHTML = listensCountData;
-  song.play(0, 1, 1, cueStart, duration);  
+  // song.play(0, 1, 1, cueStart, duration);  
+  end = cueStart + duration;
+  wavesurfer.play(cueStart, end);
   song.setVolume( 0.2, 0, 0 );  
 
-  gsap.to(waveformId, { duration: 0, x: 0, delay: duration })
+  // gsap.to(waveformId, { duration: 0, x: 0, delay: duration })
   // console.log(song.) // play([startTime], [rate], [amp], [cueStart], [duration])
   song.onended(function() {
     gsap.to(playButton, {duration: .05, opacity: 1});
@@ -327,17 +330,79 @@ function skipClicked() {
 }
 
 
-var wavesurfer = WaveSurfer.create({
-  container: '#waveform',
-  waveColor: 'violet',
-  progressColor: 'violet',
-  barWidth: 2,
-  barHeight: 1, // the height of the wave
-  barGap: null,
-  hideScrollbar: true
-});
+// var wavesurfer = WaveSurfer.create({
+//   container: '#waveform',
+//   waveColor: 'violet',
+//   progressColor: 'violet',
+//   barWidth: 2,
+//   barHeight: 1, // the height of the wave
+//   barGap: null,
+//   hideScrollbar: true
+// });
 
-wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+// wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+
+
+
+
+
+// 'use strict';
+
+var wavesurfer;
+
+// Init & load
+// document.addEventListener('DOMContentLoaded', function() {
+    let options = {
+        container: '#waveform',
+        waveColor: 'violet',
+        progressColor: 'purple',
+        loaderColor: 'purple',
+        cursorColor: 'navy',
+        plugins: [
+            WaveSurfer.timeline.create({
+                container: '#waveformTl'
+            })
+        ]
+    };
+
+    if (location.search.match('scroll')) {
+        options.minPxPerSec = 100;
+        options.scrollParent = true;
+    }
+
+    if (location.search.match('normalize')) {
+        options.normalize = true;
+    }
+
+    // Init wavesurfer
+    wavesurfer = WaveSurfer.create(options);
+
+    /* Progress bar */
+    // (function() {
+    //     const progressDiv = document.querySelector('#progress-bar');
+    //     const progressBar = progressDiv.querySelector('.progress-bar');
+
+    //     let showProgress = function(percent) {
+    //         progressDiv.style.display = 'block';
+    //         progressBar.style.width = percent + '%';
+    //     };
+
+    //     let hideProgress = function() {
+    //         progressDiv.style.display = 'none';
+    //     };
+
+    //     wavesurfer.on('loading', showProgress);
+    //     wavesurfer.on('ready', hideProgress);
+    //     wavesurfer.on('destroy', hideProgress);
+    //     wavesurfer.on('error', hideProgress);
+    // })();
+
+    wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+// });
+
+
+
+
 
 
 form.addEventListener('submit', (event) => {
