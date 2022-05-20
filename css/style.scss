@@ -156,20 +156,27 @@ ul {
   background-color: white;
 }
 
-#waveform {
-  position: fixed;
-  top: 25%;
-  left: 50%;
-  width: 10%;
-  // overflow: hidden;
-  // height: auto;
-  z-index: 5;
+.waveformWrapper {
 
-  wave {
-    // padding: 0 20%;
-    border-right: none !important;
+position: fixed;
+left: 50%;
+width: 100px;
+height: 100px;
+overflow: hidden;
+z-index: 5;
+
+  #waveform {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    width: 100%;
+  
+    wave {
+      border-right: none !important;
+    }
   }
 }
+
 
 * {
   color: white;
