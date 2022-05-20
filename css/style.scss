@@ -150,11 +150,7 @@ ul {
   display: none;
 }
 
-#progressBar {
-  height:20px; 
-  transition: width 1s ease;
-  background-color: white;
-}
+
 
 .block {
   position: absolute;
@@ -241,14 +237,7 @@ z-index: 5;
     flex-direction: column;
   }
   
-  #outerProgressBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-  }
+
 
   .labelContainer {
     padding: 20px;

@@ -159,11 +159,13 @@ ul li :hover {
   display: none;
 }
 
-#progressBar {
-  height: 20px;
-  -webkit-transition: width 1s ease;
-  transition: width 1s ease;
-  background-color: white;
+.block {
+  position: absolute;
+  top: 20%;
+  z-index: 5;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
 }
 
 .waveformWrapper {
@@ -176,10 +178,14 @@ ul li :hover {
 }
 
 .waveformWrapper #waveform {
+  -webkit-transition-property: width;
+  transition-property: width;
+  -webkit-transition-duration: .75s;
+          transition-duration: .75s;
   position: fixed;
   top: 25%;
   left: 50%;
-  width: 100%;
+  width: 0%;
 }
 
 .waveformWrapper #waveform wave {
@@ -247,24 +253,6 @@ ul li :hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.container #outerProgressBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .container .labelContainer {
