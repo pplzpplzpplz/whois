@@ -19,6 +19,7 @@ const playButton = document.querySelector('#playButton');
 const skipButton = document.querySelector('#skipButton');
 const letsGoButton = document.querySelector('#letsGo');
 const waveformId = document.querySelector('#waveform');
+const playerContainerDiv = document.querySelector('#playerContainer');
 
 const introScreen = document.querySelector('.intro');
 const sorryScreen = document.querySelector('.sorry');
@@ -28,7 +29,7 @@ const turnsCount = document.querySelector('#turnsCount');
 const listensCount = document.querySelector('#listensCount');
 const timeCount = document.querySelector('#timeCount');
 
-const audioIncrement = .1;
+const audioIncrement = .2;
 const top200Songs = [
   "Dreams by Fleetwood Mac",
   "As It Was by Harry Styles", 
@@ -241,13 +242,15 @@ document.querySelector('iframe').src = winnerSongURL
 
 let form = document.querySelector("form");
 let userInput = document.querySelector('#userInput');
-let cueStart = 2;
+let cueStart = 0;
 let duration = .45;
+let currentWidth;
 
 let turnsCountData = 0;
 let listensCountData = 0;
 let timeCountData = .1;
 let finalScore;
+
 
 
 progressBar.style.width = `${timeCountData * 10}%`;
@@ -260,7 +263,34 @@ function setup() {
 // IF USER CLICKS LETS GO ~~~~~~~~~~~~~~~~~~~~~~~
 letsGoButton.addEventListener('click', function () {
   introScreen.classList.add('hide')
+
+  currentWidth = duration / song.duration() * 100;
+  waveformId.style.width = `${currentWidth}%`;
 })
+
+
+// WAVESURFER ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+var wavesurfer = WaveSurfer.create({
+  container: '#waveform',
+  waveColor: 'violet',
+  progressColor: 'violet',
+  barWidth: 2,
+  barHeight: 1,
+  barGap: null,
+  hideScrollbar: true,
+  scrollParent: true
+});
+
+// this draws the waveform:
+// change the css width of the waveform!!
+wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+
+// GENERATE BLOCK DIV after the audio and waveform has loaded ~~~~~~
+// wavesurfer.on('ready', function () {
+//   var blockDiv = document.createElement('div');
+//   playerContainerDiv.appendChild(blockDiv);
+//   blockDiv.classList.add('block');
+// });
 
 
 
@@ -289,6 +319,10 @@ function playSound() {
 skipButton.addEventListener('click', skipClicked);
 
 function skipClicked() {
+  currentWidth = duration / song.duration() * 100;
+  waveformId.style.width = `${currentWidth}%`;
+  wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+
   turnsCountData += 1
   progressBar.style.width = `${turnsCountData * 2}%`
   // this can currently go past 100% so do math better here / locked in to 100% with maxing out with the duration 
@@ -300,17 +334,6 @@ function skipClicked() {
 }
 
 
-var wavesurfer = WaveSurfer.create({
-  container: '#waveform',
-  waveColor: 'violet',
-  progressColor: 'violet',
-  barWidth: 2,
-  barHeight: 1,
-  barGap: null,
-  hideScrollbar: true
-});
-
-wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
 
 
 form.addEventListener('submit', (event) => {

@@ -156,6 +156,15 @@ ul {
   background-color: white;
 }
 
+.block {
+  position: absolute;
+  top: 20%;
+  z-index: 5;
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+}
+
 .waveformWrapper {
 
 position: fixed;
@@ -166,10 +175,12 @@ overflow: hidden;
 z-index: 5;
 
   #waveform {
+    transition-property: width;
+    transition-duration: .75s;
     position: fixed;
     top: 25%;
     left: 50%;
-    width: 100%;
+    width: 0%;
   
     wave {
       border-right: none !important;
