@@ -325,22 +325,20 @@ function playSound() {
 skipButton.addEventListener('click', skipClicked);
 
 function skipClicked() {
-  currentWidth = duration / wavesurfer.getDuration() * 1000;
-
-  // find the width in percentage of the waveform that is displayed
-  // currentWidth = duration / wavesurfer.getDuration() * 100;
-  // console.log(currentWidth);
-
-
-
-  waveformId.style.width = `${currentWidth}%`;
-  wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
-
+  console.log('you clicked skip')
   turnsCountData += 1
   turnsCount.innerHTML = turnsCountData
   duration += audioIncrement
   timeCountData += audioIncrement
   timeCount.innerHTML = `${duration.toFixed(1)} s`
+  
+  currentWidth = duration / wavesurfer.getDuration() * 1000;
+  waveformId.style.width = `${currentWidth}%`;
+  // find the width in percentage of the waveform that is displayed
+  // currentWidth = duration / wavesurfer.getDuration() * 100;
+  // console.log(currentWidth);
+  wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
+
 }
 
 
