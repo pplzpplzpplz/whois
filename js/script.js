@@ -7,12 +7,9 @@
 
 console.log('~~~~~ W H O I S ? ~~~~~');
 
-function preload() {
-  song = loadSound('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
-  wrongAnswerSound = loadSound('wrong.mp3');
-  winnerSound = loadSound('right.wav');
-}
-
+song = 'https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3';
+// wrongAnswerSound = 'wrong.mp3';
+// winnerSound = 'right.wav';
 
 
 const playButton = document.querySelector('#playButton');
@@ -242,26 +239,32 @@ let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_so
 document.querySelector('iframe').src = winnerSongURL
 
 const audioIncrement = .2;
-let cueStart = 0;
+let cueStart = 2;
 let duration = .45;
 let currentWidth;
 
 let turnsCountData = 0;
 let listensCountData = 0;
-let timeCountData = .1;
+let timeCountData = .45;
 let finalScore;
 
-function setup() {
-  // empty, just so p5.js runs / can play song
-}
+timeCount.innerHTML = `${duration.toFixed(1)} s`
+
+
+
 
 
 // IF USER CLICKS LETS GO ~~~~~~~~~~~~~~~~~~~~~~~
 letsGoButton.addEventListener('click', function () {
   introScreen.classList.add('hide')
 
-  currentWidth = duration / song.duration() * 100;
+  // currentWidth = duration;
+  currentWidth = duration / wavesurfer.getDuration() * 1000;
+
   waveformId.style.width = `${currentWidth}%`;
+
+  let waveformWave = document.querySelector('wave');
+  // waveformWave.style.left = '-10%';
 })
 
 
@@ -298,14 +301,22 @@ function playSound() {
   // make a method to do playButton.classList.add('playing')
 
   gsap.to(waveformId, { duration: duration, x: -waveformId.offsetWidth })
-  gsap.to(playButton, {duration: .05, opacity: 0}); 
+  // gsap.to(playButton, {duration: .05, opacity: 0}); 
   listensCountData += 1;
   listensCount.innerHTML = listensCountData;
-  song.play(0, 1, 1, cueStart, duration);  
-  song.setVolume( 0.2, 0, 0 );  
+  // wavesurfer.play(0, 1, 1, cueStart, duration); 
+  // redo above but with wavesurfer!!!
+  let songEndTime = duration + cueStart;
+  wavesurfer.play(cueStart, songEndTime); 
+  console.log(`song is playing for ${duration} seconds`);
+  wavesurfer.setVolume( 0.2, 0, 0 );  
 
   gsap.to(waveformId, { duration: 0, x: 0, delay: duration })
-  song.onended(function() {
+
+
+  
+
+  wavesurfer.on('finish', function () {
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
 }
@@ -314,7 +325,13 @@ function playSound() {
 skipButton.addEventListener('click', skipClicked);
 
 function skipClicked() {
-  currentWidth = duration / song.duration() * 100;
+  currentWidth = duration / wavesurfer.getDuration() * 1000;
+
+  // find the width in percentage of the waveform that is displayed
+  // currentWidth = duration / wavesurfer.getDuration() * 100;
+  // console.log(currentWidth);
+
+
 
   waveformId.style.width = `${currentWidth}%`;
   wavesurfer.load('https://p.scdn.co/mp3-preview/ba7d85c9c34599231d528a761b56e522383afa78?cid=a46f5c5745a14fbf826186da8da5ecc3');
@@ -341,9 +358,9 @@ form.addEventListener('submit', (event) => {
       winnerScreen.classList.remove('show')
     })
 
-    winnerSound.play();
-    winnerSound.setVolume( 0.2, 0, 0 ); 
-    gsap.to(playButton, {duration: .05, opacity: 0})
+    // winnerSound.play();
+    // winnerSound.setVolume( 0.2, 0, 0 ); 
+    // gsap.to(playButton, {duration: .05, opacity: 0})
     winnerScreen.classList.add('show')
 
     finalScore = turnsCountData + listensCountData + timeCountData
@@ -354,7 +371,7 @@ form.addEventListener('submit', (event) => {
   ///////////////////////////////////////////////
   // IF THEY ARE WRONG:::
   {
-    wrongAnswerSound.play();
+    // wrongAnswerSound.play();
     wrongAnswerSound.setVolume( 0.4, 0, 0 );
     sorryScreen.classList.remove('hide');
     sorryScreen.classList.add('show'); 
