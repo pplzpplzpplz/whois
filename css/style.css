@@ -82,7 +82,7 @@ li {
   border-radius: 8px;
 }
 
-.intro #tinysnippet {
+.intro #tinysnippet, .intro #tinysnippet2 {
   color: #ffffff;
   font-size: 1rem;
   line-height: 0;
@@ -222,7 +222,7 @@ ul li :hover {
 }
 
 .winner iframe {
-  width: 60vw;
+  width: 95vw;
   height: 18vw;
 }
 
