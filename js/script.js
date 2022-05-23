@@ -50,7 +50,7 @@ document.querySelector('iframe').src = winnerSongURL
 let mp3PreviewURL = 'https://p.scdn.co/mp3-preview/1b0b8d9493dbbdb4c2a4792ce850787ad8052ecb?cid=a46f5c5745a14fbf826186da8da5ecc3'
 
 const audioIncrement = .2;
-let cueStart = 2;
+let cueStart = 5;
 let duration = .45;
 let currentWidth;
 
