@@ -1,8 +1,3 @@
-// https://www.rollingstone.com/music/music-lists/best-songs-of-all-time-1224767/
-// https://github.com/ossings/rolling_stone_top_500_songs_2021/blob/main/top_500_songs.csv
-
-
-
 let wrongAnswerSound;
 let winnerSound;
 
