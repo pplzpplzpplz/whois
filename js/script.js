@@ -37,6 +37,12 @@ $.getJSON("./js/top200Songs.json", function (data) {
   });
 });
 
+$(function() {
+  $("#userInput").autocomplete({
+    source: top200Songs
+  });
+} );
+
 // WINNING SONG INFO ~~~~~~~~~~~~~~
 let winningSong = "Beat It by Michael Jackson";
 let winnerSongID = '3fMbdgg4jU18AjLCKBhRSm'
