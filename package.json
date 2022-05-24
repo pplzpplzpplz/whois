@@ -4,7 +4,8 @@
   "description": "guess the song",
   "main": "js/scraper.js",
   "scripts": {
-    "start": "nodemon js/scraper.js"
+    "start": "nodemon js/scraper.js",
+    "start2": "nodemon js/scraper_iframe.js"
   },
   "repository": {
     "type": "git",

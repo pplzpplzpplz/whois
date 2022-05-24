@@ -1,0 +1,77 @@
+{
+  "album": {
+    "album_type": "compilation",
+    "artists": [
+      {
+        "external_urls": {
+          "spotify": "https://open.spotify.com/artist/7CyeXFnOrfC1N6z4naIpgo"
+        },
+        "href": "https://api.spotify.com/v1/artists/7CyeXFnOrfC1N6z4naIpgo",
+        "id": "7CyeXFnOrfC1N6z4naIpgo",
+        "name": "The Ronettes",
+        "type": "artist",
+        "uri": "spotify:artist:7CyeXFnOrfC1N6z4naIpgo"
+      }
+    ],
+    "external_urls": {
+      "spotify": "https://open.spotify.com/album/3vLFWR3fLqfY82WGvaLuyV"
+    },
+    "href": "https://api.spotify.com/v1/albums/3vLFWR3fLqfY82WGvaLuyV",
+    "id": "3vLFWR3fLqfY82WGvaLuyV",
+    "images": [
+      {
+        "height": 640,
+        "url": "https://i.scdn.co/image/ab67616d0000b2734694c5b97d3a88efb5fc71b5",
+        "width": 640
+      },
+      {
+        "height": 300,
+        "url": "https://i.scdn.co/image/ab67616d00001e024694c5b97d3a88efb5fc71b5",
+        "width": 300
+      },
+      {
+        "height": 64,
+        "url": "https://i.scdn.co/image/ab67616d000048514694c5b97d3a88efb5fc71b5",
+        "width": 64
+      }
+    ],
+    "name": "Be My Baby: The Very Best of The Ronettes",
+    "release_date": "2011-02-22",
+    "release_date_precision": "day",
+    "total_tracks": 18,
+    "type": "album",
+    "uri": "spotify:album:3vLFWR3fLqfY82WGvaLuyV"
+  },
+  "artists": [
+    {
+      "external_urls": {
+        "spotify": "https://open.spotify.com/artist/7CyeXFnOrfC1N6z4naIpgo"
+      },
+      "href": "https://api.spotify.com/v1/artists/7CyeXFnOrfC1N6z4naIpgo",
+      "id": "7CyeXFnOrfC1N6z4naIpgo",
+      "name": "The Ronettes",
+      "type": "artist",
+      "uri": "spotify:artist:7CyeXFnOrfC1N6z4naIpgo"
+    }
+  ],
+  "disc_number": 1,
+  "duration_ms": 160906,
+  "explicit": false,
+  "external_ids": {
+    "isrc": "USQX91100088"
+  },
+  "external_urls": {
+    "spotify": "https://open.spotify.com/track/2G2YzndIA6jeWFPBXhUjh5"
+  },
+  "href": "https://api.spotify.com/v1/tracks/2G2YzndIA6jeWFPBXhUjh5",
+  "id": "2G2YzndIA6jeWFPBXhUjh5",
+  "is_local": false,
+  "is_playable": true,
+  "name": "Be My Baby",
+  "popularity": 66,
+  "preview_url": "https://p.scdn.co/mp3-preview/756e97556adf82f32e67bc150a0e3bdd6f9bd6b0?cid=a46f5c5745a14fbf826186da8da5ecc3",
+  "track_number": 2,
+  "type": "track",
+  "uri": "spotify:track:2G2YzndIA6jeWFPBXhUjh5",
+  "dominantColor": "#803050"
+}

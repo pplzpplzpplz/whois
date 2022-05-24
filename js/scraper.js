@@ -12,7 +12,7 @@ const file = fs.createWriteStream('array.txt');
 
 // top 200 spotify songs in US
 // ~~~~~~ this site will be deprecated June 3, 2022 !! ~~~~~~~
-const url = 'https://spotifycharts.com/regional/us/weekly/latest';
+const url = 'https://open.spotify.com/embed/track/2G2YzndIA6jeWFPBXhUjh5?utm_source=generator';
 
 const app = express();
 
