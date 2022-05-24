@@ -38,24 +38,25 @@ $.getJSON("./js/top200Songs.json", function (data) {
   });
 });
 
-// WINNING SONG INFO ~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~ SONG INFO ~~~~~~~~~~~~~~
 let winningSong = "Beat It by Michael Jackson";
 // let winnerSongID = '3fMbdgg4jU18AjLCKBhRSm'
 // let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
-// document.querySelector('iframe').src = winnerSongURL
 let mp3PreviewURL = 'https://p.scdn.co/mp3-preview/1b0b8d9493dbbdb4c2a4792ce850787ad8052ecb?cid=a46f5c5745a14fbf826186da8da5ecc3'
+// document.querySelector('iframe').src = winnerSongURL
 
-const audioIncrement = .2;
-let cueStart = 2;
-let duration = .45;
-let currentWidth;
+  // SETTINGS ~~~~~~~~~~~~~~~
+  const audioIncrement = .2; // how much they get on each 'skip'
+  let cueStart = 2; // how far into the song does the sample start 
+  let duration = .45; // starting length of the sample
+  let timeCountData = duration;
+  
+  let turnsCountData = 0;
+  let listensCountData = 0;
+  let currentWidth;
+  let finalScore; 
 
-let turnsCountData = 0;
-let listensCountData = 0;
-let timeCountData = .45;
-let finalScore;
-
-timeCount.innerHTML = `${duration.toFixed(1)} s`
+timeCount.innerHTML = `${duration.toFixed(2)} s`
 
 
 
@@ -138,7 +139,7 @@ function skipClicked() {
   turnsCount.innerHTML = turnsCountData
   duration += audioIncrement
   timeCountData += audioIncrement
-  timeCount.innerHTML = `${duration.toFixed(1)} s`
+  timeCount.innerHTML = `${duration.toFixed(2)} s`
 
   currentWidth = duration / wavesurfer.getDuration() * 1000;
   waveformId.style.width = `${currentWidth}%`;
