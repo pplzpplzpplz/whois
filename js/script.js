@@ -38,12 +38,19 @@ $.getJSON("./js/top200Songs.json", function (data) {
   });
 });
 
+
+
+let decodedData = decodeURIComponent('%7B%22album%22%3A%7B%22album_type%22%3A%22compilation%22%2C%22artists%22%3A%5B%7B%22external_urls%22%3A%7B%22spotify%22%3A%22https%3A%2F%2Fopen.spotify.com%2Fartist%2F7CyeXFnOrfC1N6z4naIpgo%22%7D%2C%22href%22%3A%22https%3A%2F%2Fapi.spotify.com%2Fv1%2Fartists%2F7CyeXFnOrfC1N6z4naIpgo%22%2C%22id%22%3A%227CyeXFnOrfC1N6z4naIpgo%22%2C%22name%22%3A%22The%20Ronettes%22%2C%22type%22%3A%22artist%22%2C%22uri%22%3A%22spotify%3Aartist%3A7CyeXFnOrfC1N6z4naIpgo%22%7D%5D%2C%22external_urls%22%3A%7B%22spotify%22%3A%22https%3A%2F%2Fopen.spotify.com%2Falbum%2F3vLFWR3fLqfY82WGvaLuyV%22%7D%2C%22href%22%3A%22https%3A%2F%2Fapi.spotify.com%2Fv1%2Falbums%2F3vLFWR3fLqfY82WGvaLuyV%22%2C%22id%22%3A%223vLFWR3fLqfY82WGvaLuyV%22%2C%22images%22%3A%5B%7B%22height%22%3A640%2C%22url%22%3A%22https%3A%2F%2Fi.scdn.co%2Fimage%2Fab67616d0000b2734694c5b97d3a88efb5fc71b5%22%2C%22width%22%3A640%7D%2C%7B%22height%22%3A300%2C%22url%22%3A%22https%3A%2F%2Fi.scdn.co%2Fimage%2Fab67616d00001e024694c5b97d3a88efb5fc71b5%22%2C%22width%22%3A300%7D%2C%7B%22height%22%3A64%2C%22url%22%3A%22https%3A%2F%2Fi.scdn.co%2Fimage%2Fab67616d000048514694c5b97d3a88efb5fc71b5%22%2C%22width%22%3A64%7D%5D%2C%22name%22%3A%22Be%20My%20Baby%3A%20The%20Very%20Best%20of%20The%20Ronettes%22%2C%22release_date%22%3A%222011-02-22%22%2C%22release_date_precision%22%3A%22day%22%2C%22total_tracks%22%3A18%2C%22type%22%3A%22album%22%2C%22uri%22%3A%22spotify%3Aalbum%3A3vLFWR3fLqfY82WGvaLuyV%22%7D%2C%22artists%22%3A%5B%7B%22external_urls%22%3A%7B%22spotify%22%3A%22https%3A%2F%2Fopen.spotify.com%2Fartist%2F7CyeXFnOrfC1N6z4naIpgo%22%7D%2C%22href%22%3A%22https%3A%2F%2Fapi.spotify.com%2Fv1%2Fartists%2F7CyeXFnOrfC1N6z4naIpgo%22%2C%22id%22%3A%227CyeXFnOrfC1N6z4naIpgo%22%2C%22name%22%3A%22The%20Ronettes%22%2C%22type%22%3A%22artist%22%2C%22uri%22%3A%22spotify%3Aartist%3A7CyeXFnOrfC1N6z4naIpgo%22%7D%5D%2C%22disc_number%22%3A1%2C%22duration_ms%22%3A160906%2C%22explicit%22%3Afalse%2C%22external_ids%22%3A%7B%22isrc%22%3A%22USQX91100088%22%7D%2C%22external_urls%22%3A%7B%22spotify%22%3A%22https%3A%2F%2Fopen.spotify.com%2Ftrack%2F2G2YzndIA6jeWFPBXhUjh5%22%7D%2C%22href%22%3A%22https%3A%2F%2Fapi.spotify.com%2Fv1%2Ftracks%2F2G2YzndIA6jeWFPBXhUjh5%22%2C%22id%22%3A%222G2YzndIA6jeWFPBXhUjh5%22%2C%22is_local%22%3Afalse%2C%22is_playable%22%3Atrue%2C%22name%22%3A%22Be%20My%20Baby%22%2C%22popularity%22%3A66%2C%22preview_url%22%3A%22https%3A%2F%2Fp.scdn.co%2Fmp3-preview%2F756e97556adf82f32e67bc150a0e3bdd6f9bd6b0%3Fcid%3Da46f5c5745a14fbf826186da8da5ecc3%22%2C%22track_number%22%3A2%2C%22type%22%3A%22track%22%2C%22uri%22%3A%22spotify%3Atrack%3A2G2YzndIA6jeWFPBXhUjh5%22%2C%22dominantColor%22%3A%22%23803050%22%7D');
+let jsonObject = JSON.parse(decodedData);
+console.log(jsonObject );
+
+   
 // ~~~~~~~~~~~~ SONG INFO ~~~~~~~~~~~~~~
 let winningSong = "Beat It by Michael Jackson";
 // let winnerSongID = '3fMbdgg4jU18AjLCKBhRSm'
-// let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
+// let winnerSongEmbedURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
 let mp3PreviewURL = 'https://p.scdn.co/mp3-preview/1b0b8d9493dbbdb4c2a4792ce850787ad8052ecb?cid=a46f5c5745a14fbf826186da8da5ecc3'
-// document.querySelector('iframe').src = winnerSongURL
+// document.querySelector('iframe').src = winnerSongEmbedURL
 
   // SETTINGS ~~~~~~~~~~~~~~~
   const audioIncrement = .2; // how much they get on each 'skip'
