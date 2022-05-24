@@ -30,6 +30,7 @@ const userInput = document.querySelector('#userInput');
 
 // TOP 200 SONGS FROM JSON ~~~~~~~~~
 let top200Songs;
+let top200SongsTestArr = ['1', '2...']
 $.getJSON("./js/top200Songs.json", function (data) {
   top200Songs = [];      // THE ARRAY TO STORE JSON ITEMS.
   $.each(data, function (index, value) {
@@ -37,17 +38,11 @@ $.getJSON("./js/top200Songs.json", function (data) {
   });
 });
 
-$(function() {
-  $("#userInput").autocomplete({
-    source: top200Songs
-  });
-} );
-
 // WINNING SONG INFO ~~~~~~~~~~~~~~
 let winningSong = "Beat It by Michael Jackson";
-let winnerSongID = '3fMbdgg4jU18AjLCKBhRSm'
-let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
-document.querySelector('iframe').src = winnerSongURL
+// let winnerSongID = '3fMbdgg4jU18AjLCKBhRSm'
+// let winnerSongURL = `https://open.spotify.com/embed/track/${winnerSongID}?utm_source=generator`
+// document.querySelector('iframe').src = winnerSongURL
 let mp3PreviewURL = 'https://p.scdn.co/mp3-preview/1b0b8d9493dbbdb4c2a4792ce850787ad8052ecb?cid=a46f5c5745a14fbf826186da8da5ecc3'
 
 const audioIncrement = .2;
