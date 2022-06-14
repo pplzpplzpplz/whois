@@ -367,7 +367,7 @@ ul li :hover {
   width: 100%;
 }
 
-.container #formContainer #userInput {
+.container #formContainer #autoComplete {
   width: calc(100% - 20px);
 }
 
