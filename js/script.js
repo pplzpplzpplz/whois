@@ -75,11 +75,8 @@ letsGoButton.addEventListener('click', function () {
 
   // currentWidth = duration;
   currentWidth = duration / wavesurfer.getDuration() * 1000;
-
   waveformId.style.width = `${currentWidth}%`;
-
   let waveformWave = document.querySelector('wave');
-  // waveformWave.style.left = '-10%';
 })
 
 
@@ -97,16 +94,6 @@ var wavesurfer = WaveSurfer.create({
 
 
 wavesurfer.load(mp3PreviewURL);
-
-// GENERATE BLOCK DIV after the audio and waveform has loaded ~~~~~~
-// wavesurfer.on('ready', function () {
-//   var blockDiv = document.createElement('div');
-//   playerContainerDiv.appendChild(blockDiv);
-//   blockDiv.classList.add('block');
-// });
-
-
-
 
 
 // IF USER CLICKS PLAY ~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,9 +116,6 @@ function playSound() {
 
   gsap.to(waveformId, { duration: 0, x: 0, delay: duration })
 
-
-  
-
   wavesurfer.on('finish', function () {
     gsap.to(playButton, {duration: .05, opacity: 1});
   });
@@ -150,9 +134,6 @@ function skipClicked() {
 
   currentWidth = duration / wavesurfer.getDuration() * 1000;
   waveformId.style.width = `${currentWidth}%`;
-  // find the width in percentage of the waveform that is displayed
-  // currentWidth = duration / wavesurfer.getDuration() * 100;
-  // console.log(currentWidth);
   wavesurfer.load(mp3PreviewURL);
 
 }
@@ -174,10 +155,9 @@ form.addEventListener('submit', (event) => {
 
     winnerSound.play();
     winnerSound.setVolume( 0.2, 0, 0 ); 
-    // gsap.to(playButton, {duration: .05, opacity: 0})
     winnerScreen.classList.add('show')
 
-    finalScore = turnsCountData + listensCountData + timeCountData
+    finalScore = (turnsCountData * 1.25) + listensCountData + timeCountData
     // weight turns higher?
     
     document.querySelector('#score').innerHTML = finalScore
@@ -196,12 +176,3 @@ form.addEventListener('submit', (event) => {
     } , 600)
   }
 });
-
-// change text inside skipButton every 1 second:
-// setInterval(function(){
-//   skipButton.innerHTML = `skip turn <span style="color:#37c400;">⇉</span>`;
-// } , 1000);
-
-// setInterval(function(){
-//   skipButton.innerHTML = `skip turn <span style="color:#ffffff;">⇉</span>`;
-// } , 2000);
