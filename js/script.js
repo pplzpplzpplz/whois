@@ -25,18 +25,7 @@ const turnsCount = document.querySelector('#turnsCount');
 const listensCount = document.querySelector('#listensCount');
 const timeCount = document.querySelector('#timeCount');
 
-const form = document.querySelector("form");
-const userInput = document.querySelector('#autoComplete');
-
-// TOP 200 SONGS FROM JSON ~~~~~~~~~
-// let top200Songs;
-// let top200SongsTestArr = ['1', '2...']
-// $.getJSON("./js/top200Songs.json", function (data) {
-//   top200Songs = [];      // THE ARRAY TO STORE JSON ITEMS.
-//   $.each(data, function (index, value) {
-//       top200Songs.push(value);       // PUSH THE VALUES INSIDE THE ARRAY.
-//   });
-// });
+const goButton = document.querySelector(".search-result-redirect");
 
 
    
@@ -140,13 +129,12 @@ function skipClicked() {
 
 
 
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
+goButton.addEventListener('click', (event) => {
   console.log("you submitted an answer");
 
   ///////////////////////////////////////////////
   // IF THEY WON:::
-  if (userInput.value == winningSong) {
+  if (search.value == winningSong) {
 
     document.querySelector('#x').addEventListener('click', ()=>{
       winnerScreen.classList.remove('show')

@@ -49,7 +49,8 @@ const empSearch = {
   
   
           li.querySelector('button').addEventListener('click', (e) => {
-            empSearch.setRedirect(e.target,datakeys.Employers[option].url);
+            // empSearch.setRedirect(e.target,datakeys.Employers[option].url);
+            empSearch.setRedirect(e.target,datakeys.Employers[option].url)
   
           });
 
