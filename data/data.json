@@ -1,0 +1,169 @@
+{
+  "Employers": {
+
+    "Alta Loma School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Alta Loma School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Bassett Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Bassett Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Bear Valley Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Bear Valley Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Beaumont Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Beaumont Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Blue Ridge Academy": {
+      "id" : "W0071286",
+      "lob" : "Core",
+      "name" : "Blue Ridge Academy",
+      "url": ""
+    },
+    "Central School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Central School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Chaffey College": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Chaffey College",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Chino Valley Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Chino Valley Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Colton Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Colton Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Cucamonga School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Cucamonga School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "De Anza Building": {
+      "id" : "W0069463",
+      "lob" : "Core",
+      "name" : "De Anza Building & Maintenance, Inc.",
+      "url": ""
+    },
+    "Equitas Academy": {
+      "id" : "W0056045",
+      "lob" : "Core",
+      "name" : "Equitas Academy",
+      "url": ""
+    },
+    "Etiwanda School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Etiwanda School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Hemet Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Hemet Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Hesperia Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Hesperia Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Mountain View School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Mountain View School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "North Orange County ROP": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "North Orange County ROP",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Ontario Montclair School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Ontario Montclair School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Rim of the World Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Rim of the World Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "River Springs Charter Schools": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "River Springs Charter Schools",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "San Bernardino County Superintendent of Schools": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "San Bernardino County Superintendent of Schools",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "San Marino Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "San Marino Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Santa Ana Unified School District": {
+      "id" : "W0051532",
+      "lob" : "Premier",
+      "name" : "Santa Ana Unified School District",
+      "url": "http://www.blueshieldca.com/sausd"
+    },
+    "Savanna School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Savanna School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Summit Leadership Academy": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Summit Leadership Academy",
+      "url": ""
+    },
+    "Victor Valley Community College": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Victor Valley Community College",
+      "url": "http://www.blueshieldca.com/cseba"
+    },
+    "Yucaipa-Calimesa Joint Unified School District": {
+      "id" : "WP0000102",
+      "lob" : "Premier",
+      "name" : "Yucaipa-Calimesa Joint Unified School District",
+      "url": "http://www.blueshieldca.com/cseba"
+    }
+
+  }
+  
+}
